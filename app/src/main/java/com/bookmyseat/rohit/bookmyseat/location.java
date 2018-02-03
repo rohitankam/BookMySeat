@@ -23,3 +23,4 @@ public class location extends AppCompatActivity {
         la=new LocationAdapter(this,s1,s2,image);
     }
 }
+//hello
