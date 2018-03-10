@@ -32,10 +32,10 @@
     <string name="search">search</string>
 
     <string-array name="movie_name">
-    <item>bahubali</item>
-    <item>ek tha tigger</item>
-    <item>conjuring</item>
-</string-array>
+        <item>bahubali</item>
+        <item>ek tha tigger</item>
+        <item>conjuring</item>
+    </string-array>
 
     <string-array name="movie_descp">
         <item>tollywood movie</item>
@@ -43,4 +43,10 @@
         <item>hollywood movie</item>
     </string-array>
 
+
+    <string-array name="locations">
+        <item>Mumbai</item>
+        <item>Delhi</item>
+        <item>guj</item>
+    </string-array>
 </resources>

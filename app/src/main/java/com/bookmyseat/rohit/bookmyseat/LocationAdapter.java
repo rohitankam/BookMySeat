@@ -14,47 +14,43 @@ import android.widget.TextView;
 
 public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.LocationHolder> {
 
-    String t1[],t2[];
-    int img[];
+    String t1[];
     Context ct;
 
-    public LocationAdapter(Context c,String s1[],String s2[],int i1[]){
+    public LocationAdapter(Context c,String s1[]){
         ct=c;
         t1=s1;
-        t2=s2;
-        img=i1;
     }
-
 
 
     @Override
     public LocationHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflat =LayoutInflater.from(ct);
-        View myView=inflat.inflate(R.layout.location_row,parent,false);
-        return new LocationHolder(myView);
+        LayoutInflater inflate=LayoutInflater.from(ct);
+        View v=inflate.inflate(R.layout.location_list,parent,false);
+        return new LocationHolder(v);
     }
 
     @Override
     public void onBindViewHolder(LocationHolder holder, int position) {
-
+        holder.txt1.setText(t1[position]);
     }
 
 
     @Override
     public int getItemCount() {
-        return 0;
+        return t1.length;
     }
 
 
 
     public class LocationHolder extends RecyclerView.ViewHolder {
-        TextView t1,t2;
-        ImageView i1;
+        TextView txt1;
         public LocationHolder(View itemView) {
             super(itemView);
+            txt1=(TextView)itemView.findViewById(R.id.loc_txt);
 
-            t1=(TextView)itemView(R.id.textView4);
-            t1=(TextView)itemView(R.id.textView5);
         }
     }
+
+
 }
