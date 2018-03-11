@@ -11,9 +11,6 @@ import android.view.ViewGroup;
 import com.bookmyseat.rohit.bookmyseat.R;
 import com.bookmyseat.rohit.bookmyseat.Theater_adapter.TheaterAdapter;
 
-import java.util.ArrayList;
-
-
 /**
  * A simple {@link Fragment} subclass.
  */
