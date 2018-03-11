@@ -1,4 +1,4 @@
-package com.bookmyseat.rohit.bookmyseat.theater_adapters;
+package com.bookmyseat.rohit.bookmyseat.Theater_adapter;
 
 /**
  * Created by ROHiT on 09-Mar-18.
@@ -13,14 +13,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.bookmyseat.rohit.bookmyseat.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
-class ItemViewHolder extends RecyclerView.ViewHolder{
+class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView name;
     public ImageView img;
@@ -28,21 +26,30 @@ class ItemViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         name=(TextView)itemView.findViewById(R.id.th_text);
         img=(ImageView)itemView.findViewById(R.id.th_img);
+        itemView.setOnClickListener(this);
 
     }
-}
-public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
+    @Override
+    public void onClick(View view) {
+
+    }
+
+}
+
+public class TheaterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private int View_Item=0,View_Load=1;
-    LoadMore loadmore;
+    TheaterLoadMore loadmore;
     boolean isLoading;
     Activity activity;
-    ArrayList<Cards> items=new ArrayList<Cards>();
     int visiblethresold=0,lastvisible,totalitem;
 
-    public Adapter(RecyclerView recyclerView,Activity activity, ArrayList<Cards> items) {
-        this.activity = activity;
-        this.items = items;
+    String[] theater_name;
+
+
+
+    public TheaterAdapter(RecyclerView recyclerView,Activity activity) {
+        this.activity=activity;
         final LinearLayoutManager linearLayoutManager=(LinearLayoutManager)recyclerView.getLayoutManager();
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -61,12 +68,9 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         });
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return items.get(position)==null?View_Load:View_Item;
-    }
 
-    public void setLoadmore(LoadMore loadmore) {
+
+    public void setLoadmore(TheaterLoadMore loadmore) {
         this.loadmore = loadmore;
     }
 
@@ -74,7 +78,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(viewType==View_Item)
         {
-            View v= LayoutInflater.from(activity)
+            View v= LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.theater_card,parent,false);
             return new ItemViewHolder(v);
         }
@@ -83,20 +87,15 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof ItemViewHolder){
-            Cards c=items.get(position);
-            ItemViewHolder itemviewholder=(ItemViewHolder)holder;
-            itemviewholder.name.setText(items.get(position).getName());
-            itemviewholder.img.setImageResource(items.get(position).getImg());
-        }
-
-
+        ((ItemViewHolder)holder).name.setText(TheaterData.name[position]);
+        ((ItemViewHolder)holder).img.setImageResource(TheaterData.img[position]);
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return TheaterData.name.length;
     }
+
 
     public void setLoaded() {
         isLoading = false;

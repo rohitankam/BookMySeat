@@ -1,29 +1,23 @@
 package com.bookmyseat.rohit.bookmyseat.Fragments;
 
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-
 import com.bookmyseat.rohit.bookmyseat.R;
-import com.bookmyseat.rohit.bookmyseat.theater_adapters.Cards;
+import com.bookmyseat.rohit.bookmyseat.Theater_adapter.TheaterAdapter;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TheaterFragment extends android.support.v4.app.Fragment {
+public class TheaterFragment extends Fragment {
 
-
-    ArrayList<Cards> arrayList=new ArrayList<Cards>();
-
-    String[] name;
 
     public TheaterFragment() {
         // Required empty public constructor
@@ -36,15 +30,16 @@ public class TheaterFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_theater, container, false);
 
-        RecyclerView recycle=(RecyclerView) view.findViewById(R.id.recycle);
+        RecyclerView recycle=(RecyclerView) view.findViewById(R.id.theater_recycle);
+
 
         recycle.setLayoutManager(new LinearLayoutManager(getActivity()));
-        RecyclerView.Adapter adapter = null;
+        TheaterAdapter adapter=new TheaterAdapter(recycle,getActivity());
         recycle.setAdapter(adapter);
 
-//        adapter.setLoadmore(new LoadMore() {
+//        adapter.setLoadmore(new TheaterLoadMore() {
 //            @Override
-//            public void LoadMore() {
+//            public void TheaterLoadMore() {
 //                if(arrayList.size()<=10){
 //                    arrayList.add(null);
 //                    adapter.notifyItemInserted(arrayList.size()-1);

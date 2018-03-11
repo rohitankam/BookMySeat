@@ -1,12 +1,15 @@
-package com.bookmyseat.rohit.bookmyseat;
+package com.bookmyseat.rohit.bookmyseat.location_adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bookmyseat.rohit.bookmyseat.Main2Activity;
+import com.bookmyseat.rohit.bookmyseat.R;
 
 /**
  * Created by ROHiT on 26-Jan-18.
@@ -27,7 +30,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Locati
     public LocationHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflate=LayoutInflater.from(ct);
         View v=inflate.inflate(R.layout.location_list,parent,false);
-        return new LocationHolder(v);
+        return new LocationHolder(v,ct);
     }
 
     @Override
@@ -43,12 +46,22 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Locati
 
 
 
-    public class LocationHolder extends RecyclerView.ViewHolder {
+    public class LocationHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        private final Context ct;
         TextView txt1;
-        public LocationHolder(View itemView) {
+        public LocationHolder(View itemView,Context ctx) {
+
             super(itemView);
+            itemView.setOnClickListener(this);
+            this.ct=ctx;
             txt1=(TextView)itemView.findViewById(R.id.loc_txt);
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent i=new Intent(ct,Main2Activity.class);
+            this.ct.startActivity(i);
         }
     }
 

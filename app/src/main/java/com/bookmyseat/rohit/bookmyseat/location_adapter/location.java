@@ -1,9 +1,11 @@
-package com.bookmyseat.rohit.bookmyseat;
+package com.bookmyseat.rohit.bookmyseat.location_adapter;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.bookmyseat.rohit.bookmyseat.R;
 
 public class location extends AppCompatActivity {
 
