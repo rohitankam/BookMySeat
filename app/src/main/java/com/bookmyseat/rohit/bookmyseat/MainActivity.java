@@ -9,6 +9,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
+import com.bookmyseat.rohit.bookmyseat.Fragments.MovieFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private  boolean backclick=false;
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        Intent i=new Intent(this,Main2Activity.class);
+        Intent i=new Intent(this, Main2Activity.class);
         startActivity(i);
     }
 
@@ -53,5 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 backclick=false;
             }
         }.start();
+    }
+
+    public void input(View view) {
+
+        startActivity(new Intent(this,DateTime.class));
     }
 }

@@ -22,9 +22,10 @@
     <TextView
         android:id="@+id/t1"
         style="@style/edit"
-        android:textColor="#FFFF01"
+        android:textColor="@color/splash_text_color"
         android:text="BOOK MY SEAT"
-        android:textSize="45dp"
+        android:textSize="55dp"
+        android:textStyle="italic|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintLeft_toLeftOf="parent"

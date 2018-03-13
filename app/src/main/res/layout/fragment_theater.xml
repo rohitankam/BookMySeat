@@ -7,10 +7,18 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <!-- change width and heigh to match parent to show theaters -->
     <android.support.v7.widget.RecyclerView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
         android:id="@+id/theater_recycle"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Coming Soon"
+        android:gravity="center"
+        android:textSize="30dp"/>
 
 
 </FrameLayout>

@@ -35,9 +35,9 @@ public class TheaterFragment extends Fragment {
         TheaterAdapter adapter=new TheaterAdapter(recycle,getActivity());
         recycle.setAdapter(adapter);
 
-//        adapter.setLoadmore(new TheaterLoadMore() {
+//        adapter.setLoadmore(new MovieLoadMore() {
 //            @Override
-//            public void TheaterLoadMore() {
+//            public void MovieLoadMore() {
 //                if(arrayList.size()<=10){
 //                    arrayList.add(null);
 //                    adapter.notifyItemInserted(arrayList.size()-1);

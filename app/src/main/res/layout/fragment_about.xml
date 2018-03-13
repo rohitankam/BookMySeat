@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="341dp"
         android:layout_marginTop="200dp"
-        android:background="#3e3e3d"
+        android:background="@color/main_background"
         android:orientation="vertical"
         android:padding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

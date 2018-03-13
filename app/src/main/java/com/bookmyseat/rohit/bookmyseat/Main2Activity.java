@@ -10,10 +10,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -26,9 +28,9 @@ import com.bookmyseat.rohit.bookmyseat.location_adapter.location;
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener , AHBottomNavigation.OnTabSelectedListener {
 
-    private TextView mTextMessage;
     RecyclerView r1;
     AHBottomNavigation bottomnavigation;
+    CardView card;
 
 //    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
 //            = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -58,15 +60,14 @@ public class Main2Activity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
 
         bottomnavigation = (AHBottomNavigation) findViewById(R.id.navigation);
         this.bottomicons();
         bottomnavigation.setOnTabSelectedListener(this);
 
+
         FragmentTransaction trans=getSupportFragmentManager().beginTransaction();
         trans.replace(R.id.frame,new MovieFragment()).commit();
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -82,7 +83,13 @@ public class Main2Activity extends AppCompatActivity
 
     }
 
-    public void onTabSelected(int position,boolean wasSelected){
+
+    public void input(View view) {
+        startActivity(new Intent(this,DateTime.class));
+    }
+
+    @Override
+    public void onTabSelected(int position, boolean wasSelected) {
         if(position==0){
             MovieFragment movie=new MovieFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.frame,movie).commit();
@@ -94,6 +101,8 @@ public class Main2Activity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.frame,about).commit();
         }
     }
+
+
     public void bottomicons(){
         AHBottomNavigationItem movie=new AHBottomNavigationItem("movie",R.drawable.movies);
         AHBottomNavigationItem theater=new AHBottomNavigationItem("theater",R.drawable.theaters);
@@ -165,4 +174,7 @@ public class Main2Activity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 }

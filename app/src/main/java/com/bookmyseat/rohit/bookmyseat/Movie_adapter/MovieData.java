@@ -1,4 +1,4 @@
-package com.bookmyseat.rohit.bookmyseat.Theater_adapter;
+package com.bookmyseat.rohit.bookmyseat.Movie_adapter;
 
 import com.bookmyseat.rohit.bookmyseat.R;
 
@@ -6,7 +6,7 @@ import com.bookmyseat.rohit.bookmyseat.R;
  * Created by ROHiT on 11-Mar-18.
  */
 
-public class TheaterData  {
+public class MovieData {
 
     public static String[] name=new String[]{
             "Bahubali",
