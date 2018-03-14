@@ -28,7 +28,11 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".slideup" />
         <activity android:name=".location_adapter.location" />
-        <activity android:name=".DateTime"></activity>
+        <activity
+            android:name=".DateTime"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".SeatLayout" />
+        <activity android:name=".Payment"></activity>
     </application>
 
 </manifest>

@@ -60,5 +60,6 @@ public class MainActivity extends AppCompatActivity {
     public void input(View view) {
 
         startActivity(new Intent(this,DateTime.class));
+        finish();
     }
 }
